@@ -7,16 +7,16 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 st.title("House Price Prediction")
 
-# Inputs
-square_footage = st.number_input("Square Footage")
-num_bedrooms = st.number_input("Number of Bedrooms")
-num_bathrooms = st.number_input("Number of Bathrooms")
-year_built = st.number_input("Year Built")
-lot_size = st.number_input("Lot Size")
-garage_size = st.number_input("Garage Size")
-neighborhood_quality = st.number_input("Neighborhood Quality")
+# User Inputs
+square_footage = st.number_input("Square Footage", min_value=0.0)
+num_bedrooms = st.number_input("Number of Bedrooms", min_value=0)
+num_bathrooms = st.number_input("Number of Bathrooms", min_value=0)
+year_built = st.number_input("Year Built", min_value=1800)
+lot_size = st.number_input("Lot Size", min_value=0.0)
+garage_size = st.number_input("Garage Size", min_value=0)
+neighborhood_quality = st.number_input("Neighborhood Quality", min_value=0)
 
-# Prediction
+# Predict Button
 if st.button("Predict Price"):
 
     features = np.array([[square_footage,
